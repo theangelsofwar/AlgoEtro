@@ -45,3 +45,23 @@ const eraseOverlapIntervals = (intervals) => {
 };
 
 
+//faster solution
+var eraseOverlapIntervals = function(intervals) {
+  if (!intervals.length) {
+      return 0;
+  }
+  
+  intervals.sort((a, b) => a[1] - b[1]);
+  
+  let nonOverLappingCounter = 1;
+  let end = intervals[0][1];
+  
+  for (let i = 1, len = intervals.length; i < len; i++) {
+      if (end <= intervals[i][0]) {
+          nonOverLappingCounter++;
+          end = intervals[i][1];
+      }
+  }
+  
+  return intervals.length - nonOverLappingCounter;
+};
