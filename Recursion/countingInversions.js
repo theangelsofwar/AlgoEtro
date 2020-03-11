@@ -1,6 +1,8 @@
 // https://www.hackerrank.com/challenges/ctci-merge-sort/problem
 'use strict';
-
+//saucin, saucin
+//watch out, oh watch out, 
+//and they say congratulationss..........
 const fs = require('fs');
 
 process.stdin.resume();
@@ -25,9 +27,11 @@ process.stdin.on('end', ()=> {
 function readLine() {
     return inputString[currentLine++];
 }
+//start rockin the sleeve I can't ball with no Joes
 
 
 function countInversions(arr){
+
 
 }
 
@@ -43,7 +47,9 @@ function main() {
 
         const result = countInversions(arr);
         ws.write(result + '\n');
+        //double OT like i'm KD, coding OG
     }
 
+    //when i started ballin i was yunnnnggggg
     ws.end();
 }
