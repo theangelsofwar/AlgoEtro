@@ -16,3 +16,26 @@ kthLargest.add(4);   // returns 8
 Note:
 You may assume that nums' length ≥ k-1 and k ≥ 1.
 """
+
+class KthLargest:
+
+  def __init__(self, k: int, nums: List[int]):
+    self.k = k
+    self.arr = nums
+    heapify( self.arr)
+
+    while len( self.arr ) > self.k:
+      heappop( self.arr )
+
+  def add(self, val: int) -> int:
+    heap_top = 0
+
+    if len( self.arr ) < self.k:
+      heappush( self.arr, val)
+    else: 
+      heappushpop( self.arr, val)
+
+    return self.arr[heap_top]
+
+  #obj = KthLargest(k, nums)
+  #param_1 = obj.add(val)
