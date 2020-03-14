@@ -9,7 +9,7 @@ Inversion: Leet #435
 
 
 
-
+Adaptive Solutions | Forging a Better Tomorrow 
 
 
 
@@ -17,20 +17,8 @@ Inversion: Leet #435
 //Based on the song  "Black Beatles" By Rae Stremmurd 
 
 
-
 I sent props but you said you didn't receive them(Mike Will Made It)
 But you said didn't receive them
 
-This state all the props know me
-
-Came in with two props look like wrappers in they real clothes
-
-Mod(%)/2 Like she try to get even
-
-Quick mapDispatch, update async
-Quick release the cache, remember slowly
-
-Reconciliation
-//message for queries...
 
 
