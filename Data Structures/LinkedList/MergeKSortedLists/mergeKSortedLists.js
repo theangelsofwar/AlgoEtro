@@ -10,6 +10,7 @@
  * @return {ListNode}
  */
 //main function
+//use of divide and conquer/PQ
 const mergeKLists = (lists){
   if(lists.length ===0){
     return null;
