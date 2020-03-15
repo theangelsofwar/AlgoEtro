@@ -1,4 +1,84 @@
-//use of Min Heap for merge K sorted Linked Lists
+
+//ES5
+ /**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+var mergeKLists = function(lists) {
+  if (!lists.length) {
+      //lists.length===0 is technically false boolean by coercion
+      return null;
+  }
+  var result = null;
+  var tail = null;
+  for (let i = 0; i < lists.length; i++) {
+      if (lists[i] === null) {
+          lists[i] = new ListNode(Number.POSITIVE_INFINITY);
+      }
+  } 
+  build_min_heap(lists, lists.length, 0);
+  var rootValue = lists[0].val;
+  while (isFinite(rootValue)) {
+      if (result === null) {
+          result = new ListNode(rootValue);
+          tail = result;
+      }
+      else {
+          tail.next = new ListNode(rootValue);
+          tail = tail.next;
+      }
+      lists[0] = lists[0].next;
+      if (lists[0] === null) {
+          lists[0] = new ListNode(Number.POSITIVE_INFINITY);
+      }
+      min_heapify(lists, lists.length, 0);
+      rootValue = lists[0].val;
+  }
+  return result;
+};
+
+function swap_in_array(A, i, j) {
+  var temp = A[i];
+  A[i] = A[j];
+  A[j] = temp;
+}
+
+function min_heapify(A, arr_length, i) {
+  var l = 2 * i + 1,
+      r = 2 * i + 2,
+      smallest = i;
+  if (l < arr_length && A[l].val < A[smallest].val) {
+      smallest = l;
+  }
+  if (r < arr_length && A[r].val < A[smallest].val) {
+      smallest = r;
+  }
+  if (smallest !== i) {
+      swap_in_array(A, i, smallest);
+      min_heapify(A, arr_length, smallest);
+  }
+}
+
+function build_min_heap(A, arr_length, i) {
+  var l = 2 * i + 1,
+      r = 2 * i + 2;
+  if (l < arr_length) {
+      build_min_heap(A, arr_length, l);
+  }
+  if (r < arr_length) {
+      build_min_heap(A, arr_length, r);
+  }
+  min_heapify(A, arr_length, i);
+}
+
+//ES6//use of Min Heap for merge K sorted Linked Lists
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -79,3 +159,7 @@ function swap_in_array(A, i, j){
    }
    return result;
  };
+
+
+
+
