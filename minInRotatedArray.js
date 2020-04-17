@@ -23,7 +23,7 @@ Output: 0
  */
 var findMin = function(nums) {
   //approach 1: iterate array until the element previous is greater than the current element, return current element;
-  
+  //O(n) 
   if(!nums || nums===null || nums.length===0){ return nums; }
   else if(nums.length===1){ return nums[0]; }
   for(let i = 1; i< nums.length; i++){
@@ -36,3 +36,10 @@ var findMin = function(nums) {
   //then it had no pivot
   return nums[0];
 };
+
+const findMin2 = () => {
+  //do this with binary search about the pivots, to make the search O(LogN)
+}
+
+
+module.exports = findMIn;
