@@ -85,3 +85,33 @@ Hot Topics:
   d. Next Permutation
   e. String to Integer(atoi)
   f. ZigZag Conversion
+
+
+
+Key Concepts: 
+  -recursion
+  -dijistra's path algorithm
+  -cache/memoization
+
+Javascript Specific:
+- use of inner function, closer,
+- callbacks and higher order functions 
+- async/await or promise chains
+
+Extranneous Concepts:
+- Bloom Filter
+
+
+
+
+Important Datastructures for Blockchain Architecture:
+- Hashmap, Map
+- Linked List
+- Trees, Graphs
+- Bloom Filters
+    > check is is in Set
+    
+
+
+To Do:
+- System Design Decentralized Instagram using the Blockchain architecture
