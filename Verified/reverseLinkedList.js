@@ -18,6 +18,17 @@ A linked list can be reversed either iteratively or recursively. Could you imple
  *     this.next = null;
  * }
  */
+/** easy, 93.5%
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -25,10 +36,10 @@ A linked list can be reversed either iteratively or recursively. Could you imple
 var reverseList = function(head) {
   //do this in place
 
-if(!head || head===null){
-  return;
+if(!head || head===null) {
+  return head;
 }
-else if(head.next===null){
+else if(head.next===null) {
   return head;
 }
 
