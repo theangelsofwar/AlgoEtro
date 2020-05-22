@@ -19,8 +19,6 @@ Example 2:
 [[0,0,0,0,0,0,0,0]]
 Given the above grid, return 0.
 Note: The length of each dimension in the given grid does not exceed 50.
- */
-
  /**
  * @param {number[][]} grid
  * @return {number}
@@ -34,9 +32,9 @@ var maxAreaOfIsland = function(grid) {
       for(let j=0; j<grid[0].length; j++) {
           //iter cols
           // let el = grid[i][j];
-          let islandCount = processIsland(grid, i, j);
-          if(islandCount>=4){
-              result++;
+          let area51 = processIsland(grid, i, j);
+          if(area51>=4){
+              result = Math.max(area51,result);
           }
       }
   }
@@ -47,7 +45,8 @@ var maxAreaOfIsland = function(grid) {
 
 //if count > 4 vertical or horizontally, DFC then we can return true
 var processIsland = function(grid, i, j) {
-  let count = 0;
+  let area51 = 0;
+  
   
   if(!grid || grid.length===0 || i<0 || j<0 || i>=grid.length || j>=grid[0].length){
       return 0; //0 is also false
@@ -55,14 +54,14 @@ var processIsland = function(grid, i, j) {
   else{
       let el = grid[i][j];
       if(el===1){
-          count++;
+          area51++;
           grid[i][j]=0;
-          count+=processIsland(grid, i+1,j);
-          count+=processIsland(grid, i-1,j);
-          count+=processIsland(grid, i,j+1);
-          count+=processIsland(grid, i, j-1); //not diagonals, i-1 j-1, 
+          area51+=processIsland(grid, i+1,j);
+          area51+=processIsland(grid, i-1,j);
+          area51+=processIsland(grid, i,j+1);
+          area51+=processIsland(grid, i, j-1); //not diagonals, i-1 j-1, 
       }
       
   }
-  return count;
+  return area51;
 }
