@@ -48,11 +48,9 @@ var longestCommonSubsequence = function(text1, text2) {
   //memo
   let memo = new Array(text1.length).fill(new Array(text2.length).fill(0));
   //must be 2d array
-  memo.fill([].fill())
   
   for(let i=0; i<text1.length; i++){
       for(let j=0; j<text2.length; j++){
-          let el = memo[i][j]; //element,
           //perhaps instead of using double for loop we can use a single get the array element, use ...memo[i].map(el => {})... but still On2
           if(text1.charAt(i) === text2.charAt(j)){
               if(i===0 || j===0){
@@ -61,11 +59,9 @@ var longestCommonSubsequence = function(text1, text2) {
               else{
                   memo[i][j] = memo[i-1][j-1]+1;
               }
-              
-              if(memo[i][j]>result){
+              if(memo[i][j]>result) {
                   result = memo[i][j]; //or Math.max
-                  substr = text2.slice(i-result+1, i+1);
-
+                  substr = text1.slice(i-result+1, i+1);
               }
           }
       }
