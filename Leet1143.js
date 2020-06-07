@@ -32,3 +32,44 @@ Constraints:
 1 <= text2.length <= 1000
 The input strings consist of lowercase English characters only.
  */
+
+/**
+ * @param {string} text1
+ * @param {string} text2
+ * @return {number}
+ */
+var longestCommonSubsequence = function(text1, text2) {
+  let result = 0;
+  if(!text1 || !text2 || text1.length === 0 || text2.length === 0){
+      return result;
+  }
+  
+  let substr="";
+  //memo
+  let memo = new Array(text1.length).fill(new Array(text2.length).fill(0));
+  //must be 2d array
+  memo.fill([].fill())
+  
+  for(let i=0; i<text1.length; i++){
+      for(let j=0; j<text2.length; j++){
+          let el = memo[i][j]; //element,
+          //perhaps instead of using double for loop we can use a single get the array element, use ...memo[i].map(el => {})... but still On2
+          if(text1.charAt(i) === text2.charAt(j)){
+              if(i===0 || j===0){
+                  memo[i][j] = 1;
+              }
+              else{
+                  memo[i][j] = memo[i-1][j-1]+1;
+              }
+              
+              if(memo[i][j]>result){
+                  result = memo[i][j]; //or Math.max
+                  substr = text2.slice(i-result+1, i+1);
+
+              }
+          }
+      }
+  }
+  
+  return result;
+};
